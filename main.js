@@ -4,8 +4,8 @@ var linewidth = 5;
 
 setCanvasSize(yyy)
 
-context.clearStyle = 'red'
-context.clearRect(0,0,yyy.width,yyy.height);
+context.fillStyle = 'white'  
+context.fillRect(0,0,yyy.width,yyy.height);
 
 listenToUser(yyy)
 
@@ -29,8 +29,9 @@ save.onclick = function(){
     link.click()
 }
 
-cover.onclick = function clearCanvas(){  
-    context.clearRect(0,0,yyy.width,yyy.height);  
+cover.onclick = function clearCanvas(){
+    context.fillStyle = 'white'  
+    context.fillRect(0,0,yyy.width,yyy.height);  
 }  
 
 black.onclick = function(){
