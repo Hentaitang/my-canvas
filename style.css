@@ -1,24 +1,108 @@
+*{margin: 0; padding: 0;}
+ul, ol{
+  list-style: none;
+}
+
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+body{
+  overflow: hidden;
+}
+
 #xxx{
-    background: white;
-    display: block;
-  }
+  background: white;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
   
-  *{margin: 0;}
-  
-  .action{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-  }
-  
-  .action > #brush{
-    display: none;
-  }
-  
-  .action.x > #brush{
-    display: inline-block;
-  }
-  
-  .action.x > #eraser{
-    display: none;
-  }
+.action{
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 10px;
+}
+
+.action svg{
+  transition: all 0.3s;
+  margin: 0 5px;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.action svg.active{
+  fill: red;
+  transform: scale(1.2);
+  transition: all 0.3s;
+}
+
+ol.color{
+  position: fixed;
+  left: 13px;
+  top: 50px;
+}
+
+.color > li{
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin: 10px 0;
+  transition: 0.3s;
+}
+
+ol > li.black{
+  background: black;
+}
+
+ol > li.red{
+  background: red;
+}
+
+ol > li.green{
+  background: green;
+}
+
+ol > li.yellow{
+  background: yellow;
+}
+
+ol > li.active{
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.95);
+  transform: scale(1.2);
+}
+
+#cover:hover, #save:hover{
+  transform: scale(1.2);
+}
+
+.linestyle{
+  position: fixed;
+  top: 10px;
+  right: 50px;
+}
+
+.linestyle > li{
+  margin: 10px 0;
+  width: 20px;  
+}
+
+.linestyle > li:hover{
+   transform: scale(1.2);
+   transition: 0.3s;
+}
+
+.linestyle > .thin{
+  border: 2px solid black;
+}
+
+
+.linestyle > .thick{
+  border: 3px solid black;
+}

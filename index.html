@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="//at.alicdn.com/t/font_730913_bsanidmojl.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>画板</title>
@@ -9,8 +10,28 @@
 <body>
     <canvas id="xxx" width=300 height=300></canvas>
     <div id="action" class="action">
-        <button id="eraser">橡皮擦</button>
-        <button id="brush">画笔</button>
+        <svg id="pen" class="icon active" aria-hidden="true">
+            <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg id="eraser" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-eraser"></use>
+        </svg>
+        <svg id="cover" class="icon" aria-hidden="true">
+                <use xlink:href="#icon-delete"></use>
+        </svg>
+        <svg id="save" class="icon" aria-hidden="true">
+                <use xlink:href="#icon-download"></use>
+        </svg>
+        <ol class="color">
+            <li id="black" class="black active"></li>
+            <li id="red" class="red"></li>
+            <li id="green" class="green"></li>
+            <li id="yellow" class="yellow"></li>
+        </ol>
+        <ol class="linestyle">
+            <li id="thin" class="thin"></li>
+            <li id="thick" class="thick"></li>
+        </ol>
     </div>
     <script src="./main.js">
     </script>

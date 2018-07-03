@@ -1,21 +1,81 @@
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
+var linewidth = 5;
 
 setCanvasSize(yyy)
+
+context.clearStyle = 'red'
+context.clearRect(0,0,yyy.width,yyy.height);
 
 listenToUser(yyy)
 
 var usingEraser = false
+pen.onclick = function(){
+    usingEraser = false
+    pen.classList.add('active')
+    eraser.classList.remove('active')
+}
 eraser.onclick = function(){
     usingEraser = true
-    action.className = 'action x'
+    eraser.classList.add('active')
+    pen.classList.remove('active')
 }
 
-brush.onclick = function(){
-    usingEraser = false
-    action.className = 'action'
+save.onclick = function(){
+    var link = document.createElement('a')
+    document.body.appendChild(link)
+    link.download = '画.png';
+    link.href = yyy.toDataURL("image/png")
+    link.click()
 }
 
+cover.onclick = function clearCanvas(){  
+    context.clearRect(0,0,yyy.width,yyy.height);  
+}  
+
+black.onclick = function(){
+    context.fillStyle = 'black'
+    context.strokeStyle = 'black'
+    black.classList.add('active')
+    red.classList.remove('active')
+    green.classList.remove('active')
+    yellow.classList.remove('active')
+}
+
+red.onclick = function(){
+    context.fillStyle = 'red'
+    context.strokeStyle = 'red'
+    red.classList.add('active')
+    green.classList.remove('active')
+    yellow.classList.remove('active')
+    black.classList.remove('active')
+}
+
+green.onclick = function(){
+    context.fillStyle = 'green'
+    context.strokeStyle = 'green'
+    red.classList.remove('active')
+    green.classList.add('active')
+    yellow.classList.remove('active')
+    black.classList.remove('active')
+}
+
+yellow.onclick = function(){
+    context.fillStyle = 'yellow'
+    context.strokeStyle = 'yellow'
+    red.classList.remove('active')
+    green.classList.remove('active')
+    yellow.classList.add('active')
+    black.classList.remove('active')
+}
+
+thin.onclick = function(){
+    linewidth = 5
+}
+
+thick.onclick = function(){
+    linewidth = 10
+}
 /****************/
 function setCanvasSize(canvas){
     page()
@@ -33,7 +93,7 @@ function setCanvasSize(canvas){
 function drawLine(x1,y1,x2,y2){
     context.beginPath();
     context.moveTo(x1, y1);
-    context.lineWidth = 5;
+    context.lineWidth = linewidth;
     context.lineTo(x2, y2);
     context.stroke()
     context.closePath()
